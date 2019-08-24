@@ -1,6 +1,6 @@
 from API import get_submissions, filter_submissions, get_db_ids, clean_db_ids
 import yagmail
-import json
+
 
 SUBREDDIT = "hardwareswap"
 
@@ -8,7 +8,7 @@ database_ids = get_db_ids()
 print(database_ids)
 
 # only will return new submissions
-new_submissions = get_submissions(SUBREDDIT, database_ids, 1)
+new_submissions = get_submissions(SUBREDDIT, database_ids, 10)
 for i in new_submissions:
     print(i)
 
