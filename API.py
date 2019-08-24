@@ -68,7 +68,7 @@ def get_submissions(subreddit_name, db_ids, limit=1):
 
     return return_submission
 
-def filter_submissions(subreddit_name, include=[], exclude=[]):
+def filter_submissions(new_submissions, subreddit_name, include=[], exclude=[]):
     filters = []
 
     for i in include:
@@ -91,12 +91,14 @@ def filter_submissions(subreddit_name, include=[], exclude=[]):
         Submission.title
     ).filter(
         Subreddit.display_name == subreddit_name,
+        Submission.id.in_([row.id for row in new_submissions]),
         *filters
         #expands contents of the filters list
     )
 
-    return submissions.all()
+# session.query(MyUserClass).filter(MyUserClass.id.in_((123,456))).all()
 
+    return submissions.all()
 
 def get_db_ids():
     submission_ids = session.query(

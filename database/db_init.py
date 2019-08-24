@@ -7,7 +7,8 @@ from database.models import Base
 from .models import Base
 
 #Spins up the database
-engine = create_engine('sqlite:///:database.sql:', echo=False)
+#engine = create_engine('sqlite:///:database.sql:', echo=False)
+engine = create_engine('sqlite://', echo=False)
 Session = sessionmaker(bind=engine)
 
 Base.metadata.create_all(engine)
