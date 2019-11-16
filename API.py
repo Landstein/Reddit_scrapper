@@ -7,17 +7,17 @@ from datetime import datetime, timezone
 #from db import Submission
 
 
-client_id = "WKfANfqtJZEuhg"
-client_secret = "ruYIIrAlQYS816YCZQVQ8t7MExQ"
+client_id = ""
+client_secret = ""
 app_name = "Python Practice"
-username = "Python_integrated"
-password = "Python123"
+username = ""
+password = ""
 
 reddit = praw.Reddit(client_id=client_id,
                      client_secret=client_secret,
                      user_agent=client_id,
-                     username='Python_integrated',
-                     password='Python123')
+                     username='',
+                     password='')
 
 def get_submissions(subreddit_name, db_ids, limit=1):
     """
